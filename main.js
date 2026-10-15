@@ -130,6 +130,10 @@ function playSound(audio) {
   console.log("playSound: plays audio playback for the sign's sound file");
 }
 
+//call functions to test
+findDate(3, 25);
+displayPicture(zodiacSigns[0].image);
+playSound(zodiacSigns[0].audio);
 
 
 
