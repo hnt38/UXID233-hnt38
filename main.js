@@ -146,9 +146,9 @@ for (const sign of zodiacSigns) {
 
 // test cases for findDate function regarding signs 
 console.log("\n=== Test Lookups ===");
-console.log(findDate(12, 25)); // Capricorn start 
-console.log(findDate(1, 5));   // Capricorn wrap 
-console.log(findDate(3, 21));
+console.log(findDate(3, 25)); // Capricorn start 
+console.log(findDate(8, 10));   // Capricorn wrap 
+
 {
   console.log("findDate: determines and returns the correct sign object for a given birth date");
 }
