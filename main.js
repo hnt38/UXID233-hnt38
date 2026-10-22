@@ -115,8 +115,41 @@ const zodiacSigns = [
     } 
 ] 
 
-// Function to find a sign based on a birth date
+// Function to find a sign based on a birth date 
+
+function getDateValue(month, day) { 
+    return month * 100 + day; 
+} 
+ // a look up function that uses a loop and a range to check over the data 
 function findDate(month, day) {
+    const targetValue = getDateValue(month, day);
+
+    for (const sign of zodiacSigns) {
+        const startValue = getDateValue(sign.start.month, sign.start.day);
+        const endValue = getDateValue(sign.end.month, sign.end.day);
+        const wraps = startValue > endValue; // Check if the date range wraps around the year
+
+        if (!wraps && targetValue >= startValue && targetValue <= endValue) { 
+            return sign;
+        } 
+        if (wraps && (targetValue >= startValue || targetValue <= endValue)) {
+            return sign;
+        } 
+    } 
+    return null; // Return null if no matching sign is found 
+}
+// test cases 
+console.log("=== All 12 FFVII Zodiac Signs ===");
+for (const sign of zodiacSigns) {
+    console.log(`${sign.name} (${sign.dateRange}): ${sign.character}`);
+}
+
+// test cases for findDate function regarding signs 
+console.log("\n=== Test Lookups ===");
+console.log(findDate(12, 25)); // Capricorn start 
+console.log(findDate(1, 5));   // Capricorn wrap 
+console.log(findDate(3, 21));
+{
   console.log("findDate: determines and returns the correct sign object for a given birth date");
 }
 
