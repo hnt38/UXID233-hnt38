@@ -137,7 +137,85 @@ function findDate(month, day) {
         } 
     } 
     return null; // Return null if no matching sign is found 
+} 
+
+
+//  Find the different  elements on the page:
+const signContainer = document.querySelector('#signContainer');
+const dateInput = document.querySelector('input#birthDate');
+const lookupBtn = document.querySelector('button#lookupBtn');
+const outputArea = document.querySelector('#outputArea');
+
+// Render all 12 zodiac signs dynamically into the page:
+if (signContainer) {
+    zodiacSigns.forEach(sign => {
+        // Create the new card element, set its text, and add a class:
+        const card = document.createElement('div');
+        card.classList.add('sign-card');
+
+        // Create and append the title:
+        const title = document.createElement('h3');
+        title.textContent = sign.name;
+        card.appendChild(title);
+
+        // Create and append the date range:
+        const dateRange = document.createElement('p');
+        dateRange.textContent = sign.dateRange;
+        card.appendChild(dateRange);
+
+        // Create and append the character name:
+        const character = document.createElement('p');
+        character.textContent = `FF7 Match: ${sign.character}`;
+        card.appendChild(character);
+
+        // Append the completed card to the container on the page:
+        signContainer.appendChild(card);
+    });
 }
+
+// 3. Handle the date lookup when the button is clicked:
+if (lookupBtn && dateInput && outputArea) {
+    lookupBtn.addEventListener('click', () => {
+        const text = dateInput.value;
+
+        if (text.length > 0) {
+            // Parse month and day from the date string (YYYY-MM-DD):
+            const parts = text.split('-');
+            const month = parseInt(parts[1], 10);
+            const day = parseInt(parts[2], 10);
+
+            // Find the matching sign using your existing findDate function:
+            const matchedSign = findDate(month, day);
+
+            // Clear previous output:
+            outputArea.textContent = '';
+
+            if (matchedSign) {
+                // Create result display elements:
+                const resultDiv = document.createElement('div');
+                resultDiv.classList.add('result-item');
+
+                const heading = document.createElement('h3');
+                heading.textContent = `Your Sign: ${matchedSign.name}`;
+                resultDiv.appendChild(heading);
+
+                const charText = document.createElement('p');
+                charText.textContent = `Your FF7 Match is ${matchedSign.character}!`;
+                resultDiv.appendChild(charText);
+
+                // Append result to the output area on the page:
+                outputArea.appendChild(resultDiv);
+            } else {
+                outputArea.textContent = 'No matching sign found.';
+            }
+
+            // Clear the input field:
+            dateInput.value = '';
+        }
+    });
+}
+
+
 // test cases 
 console.log("=== All 12 FFVII Zodiac Signs ===");
 for (const sign of zodiacSigns) {
