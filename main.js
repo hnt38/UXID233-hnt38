@@ -141,12 +141,11 @@ function findDate(month, day) {
 
 
 //  Find the different  elements on the page:
-const signContainer = document.querySelector('#signContainer');
-const dateInput = document.querySelector('input#birthDate');
-const lookupBtn = document.querySelector('button#lookupBtn');
-const outputArea = document.querySelector('#outputArea');
+const signContainer = document.querySelector('#signContainer'); // Container for the zodiac sign cards
+const dateInput = document.querySelector('input#birthDate'); // Input field for the birth date
+const lookupBtn = document.querySelector('button#lookupBtn'); // Button to trigger the lookup
+const outputArea = document.querySelector('#outputArea'); // Area to display the lookup results
 
-// Render all 12 zodiac signs dynamically into the page:
 if (signContainer) {
     zodiacSigns.forEach(sign => {
         // Create the new card element, set its text, and add a class:
@@ -173,7 +172,7 @@ if (signContainer) {
     });
 }
 
-// 3. Handle the date lookup when the button is clicked:
+// handle the lookup button click event to find and display the matching sign
 if (lookupBtn && dateInput && outputArea) {
     lookupBtn.addEventListener('click', () => {
         const text = dateInput.value;
@@ -222,29 +221,6 @@ for (const sign of zodiacSigns) {
     console.log(`${sign.name} (${sign.dateRange}): ${sign.character}`);
 }
 
-// test cases for findDate function regarding signs 
-console.log("\n=== Test Lookups ===");
-console.log(findDate(3, 25)); // Capricorn start 
-console.log(findDate(8, 10));   // Capricorn wrap 
-
-{
-  console.log("findDate: determines and returns the correct sign object for a given birth date");
-}
-
-// Function to display the sign's details on the web page
-function displayPicture(image) {
-  console.log("displayPicture: updates the DOM to show the character image");
-}
-
-// Function to play the sign's audio clip
-function playSound(audio) {
-  console.log("playSound: plays audio playback for the sign's sound file");
-}
-
-//call functions to test
-findDate(3, 25);
-displayPicture(zodiacSigns[0].image);
-playSound(zodiacSigns[0].audio);
 
 
 
