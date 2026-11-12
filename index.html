@@ -1,32 +1,45 @@
 <!DOCTYPE html> 
 <html lang="en">
- <head>
-  <meta charset="utf-8">
-  <title>Final Fantasy Zodiac Lookup</title>
- </head>
- <body>
-  
+<head>
+    <meta charset="utf-8">
+    <title>Final Fantasy Zodiac Lookup</title>
+    <!-- Link your stylesheet -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <main class="zodiac-app">
+        <h1>Final Fantasy Zodiac Lookup</h1>
+        
+        <!-- Date input and output area -->
+        <section class="input-section">
+            <h2>Find By Birthday</h2>
+            <div class="form-group">
+                <label for="birthDate">Select your birth date:</label>
+                <input type="date" id="birthDate">
+                <button type="button" id="lookupBtn">Reveal Character</button>
+            </div>
+            
+            <!-- Unique output area with accessibility live region -->
+            <div id="outputArea" class="output-area" aria-live="polite">
+                <!-- lookup result goes here -->
+            </div>
+        </section>
 
-<main class="zodiac-app">
-  <h1> Final Fantasy Zodiac Lookup</h1>
-  
-  <!-- Date input and output area -->
-  <div class="input-section">
-    <label for="birthDate">Select your birth date:</label>
-    <input type="date" id="birthDate">
-    <button id="lookupBtn">Reveal Character</button>
-  </div>
+        <!-- Interactive 12 Character Buttons Section -->
+        <section class="interactive-section">
+            <h2>FFVII Zodiac Matcher</h2>
+            <!-- This is where your JavaScript will inject the 12 buttons -->
+            <div id="buttonContainer" class="button-grid"></div>
+        </section>
 
-  <div id="outputArea" class="output-area">
-    <!--  lookup result goes here -->
-  </div>
+        <!-- Sign display container for all 12 cards -->
+        <section id="signContainer" class="sign-grid"> 
+            <!-- JavaScript will inject the 12 cards here -->
+        </section> 
+    </main> 
 
-  <!-- Sign display container  -->
-  <section id="signContainer" class="sign-grid">
-  </section>
-</main> 
-<script src="main.js"></script>
- </body> 
-</html> 
-
+    <!-- Link your JavaScript file -->
+    <script src="main.js"></script>
+</body> 
+</html>
 
