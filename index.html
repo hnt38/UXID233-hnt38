@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Fantasy Zodiac Lookup</title>
     <!-- Link your stylesheet -->
     <link rel="stylesheet" href="main.css">
@@ -10,32 +11,23 @@
     <main class="zodiac-app">
         <h1>Final Fantasy Zodiac Lookup</h1>
         
-        <!-- Date input and output area -->
-        <section class="input-section">
-            <h2>Find By Birthday</h2>
-            <div class="form-group">
-                <label for="birthDate">Select your birth date:</label>
-                <input type="date" id="birthDate">
-                <button type="button" id="lookupBtn">Reveal Character</button>
-            </div>
+        <!-- birthday input -->
+        <section class="input-section"> 
+            <label for="birthDate">Enter your birthday to find your Final Fantasy VII character:</label>
+            <input type="date" id="birthDate"> 
+            <button type="button" id="lookupBtn">Reveal Character</button>
+        </section> 
             
-            <!-- Unique output area with accessibility live region -->
+            <!-- output area  -->
             <div id="outputArea" class="output-area" aria-live="polite">
                 <!-- lookup result goes here -->
-            </div>
-        </section>
+            </div>  
 
-        <!-- Interactive 12 Character Buttons Section -->
-        <section class="interactive-section">
-            <h2>FFVII Zodiac Matcher</h2>
-            <!-- This is where your JavaScript will inject the 12 buttons -->
-            <div id="buttonContainer" class="button-grid"></div>
+            </section>
+            
+            <!--sign container--> 
+            <section id="signContainer" class="sign-grid">    
         </section>
-
-        <!-- Sign display container for all 12 cards -->
-        <section id="signContainer" class="sign-grid"> 
-            <!-- JavaScript will inject the 12 cards here -->
-        </section> 
     </main> 
 
     <!-- Link your JavaScript file -->
