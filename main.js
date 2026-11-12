@@ -56,7 +56,7 @@ const zodiacSigns = [
         dateRange: "August 23 - September 22", 
         start: { month: 8, day: 23 },
         end: { month: 9, day: 22 },
-        image: "images/aerith_resize,jpg",
+        img: { src: "images/aerith_resize.jpg" },
         audio: "assets/audio/aerith.mp3"
     },
     { 
