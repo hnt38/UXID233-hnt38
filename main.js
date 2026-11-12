@@ -208,8 +208,48 @@ if (signContainer && outputArea) {
         // 4. Add the finished button into your HTML container grid
         signContainer.appendChild(charButton);
     });
-}
+} 
+// Birthday lookup button event listener
+if (lookupBtn && dateInput && outputArea) {
+    lookupBtn.addEventListener('click', () => {
+        const text = dateInput.value;
 
+        if (!text) {
+            outputArea.textContent = 'Please enter a valid date.';
+            return;
+        }
+
+        const parsedDate = new Date(text);
+        if (Number.isNaN(parsedDate.getTime())) {
+            outputArea.textContent = 'Please enter a valid date.';
+            return;
+        }
+
+        const month = parsedDate.getMonth() + 1;
+        const day = parsedDate.getDate();
+        const matchedSign = findDate(month, day);
+
+        outputArea.textContent = ''; // Clear previous output
+
+        const resultDiv = document.createElement('div');
+        resultDiv.classList.add('result-item');
+
+        if (matchedSign) {
+            const heading = document.createElement('h3');
+            heading.textContent = `Zodiac Sign: ${matchedSign.name}`;
+
+            const charText = document.createElement('p');
+            charText.textContent = `FF7 Character: ${matchedSign.character} | Date Range: ${matchedSign.dateRange}`;
+
+            resultDiv.appendChild(heading);
+            resultDiv.appendChild(charText);
+        } else {
+            resultDiv.textContent = 'No matching zodiac sign found.';
+        }
+
+        outputArea.appendChild(resultDiv);
+    });
+} 
 
 
 
