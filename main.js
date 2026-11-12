@@ -146,33 +146,32 @@ const dateInput = document.querySelector('input#birthDate'); // Input field for 
 const lookupBtn = document.querySelector('button#lookupBtn'); // Button to trigger the lookup
 const outputArea = document.querySelector('#outputArea'); // Area to display the lookup results
 
-if (signContainer) {
-    zodiacSigns.forEach(sign => {
+//if (signContainer) {
+    //zodiacSigns.forEach(sign => {
         // Create the new card element, set its text, and add a class:
-        const card = document.createElement('div');
-        card.classList.add('sign-card');
+        //const card = document.createElement('div');
+        //card.classList.add('sign-card');
 
         // Create and add the title:
-        const title = document.createElement('h3');
-        title.textContent = sign.name;
-        card.appendChild(title);
+        //const title = document.createElement('h3');
+        //title.textContent = sign.name;
+        //card.appendChild(title);
 
         // Create and add the date range:
-        const dateRange = document.createElement('p');
-        dateRange.textContent = sign.dateRange;
-        card.appendChild(dateRange);
+        //const dateRange = document.createElement('p');
+        //dateRange.textContent = sign.dateRange;
+        //card.appendChild(dateRange);
 
         // Create and add the character name:
-        const character = document.createElement('p');
-        character.textContent = `FF7 Match: ${sign.character}`;
-        card.appendChild(character);
+        //const character = document.createElement('p');
+        //character.textContent = `FF7 Match: ${sign.character}`;
+        //card.appendChild(character);
 
         // adds the completed card to the container on the page:
-        signContainer.appendChild(card);
-    });
-}
+        //signContainer.appendChild(card);
+
  // Find your button container on the page
-const buttonContainer = document.querySelector('#buttonContainer');
+//const buttonContainer = document.querySelector('#buttonContainer');
 
 // Check if the container exists so it doesn't cause errors
 if (signContainer && outputArea) {
