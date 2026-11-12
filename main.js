@@ -233,8 +233,6 @@ if (lookupBtn && dateInput && outputArea) {
             const charText = document.createElement('p');
             charText.textContent = `FF7 Character: ${matchedSign.character} | Date Range: ${matchedSign.dateRange}`;
 
-            resultDiv.appendChild(heading);
-            resultDiv.appendChild(charText);
         } else {
             resultDiv.textContent = 'No matching zodiac sign found.';
         }
