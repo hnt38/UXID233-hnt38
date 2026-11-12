@@ -171,63 +171,44 @@ if (signContainer) {
         signContainer.appendChild(card);
     });
 }
+ // Find your button container and output area on the page
+const buttonContainer = document.querySelector('#buttonContainer');
+const outputArea = document.querySelector('#outputArea');
 
-// 5. Dynamically Render the 12 Character Buttons (Interactive feature)
-if (buttonContainer && outputArea) {
+// Check if the container exists so it doesn't cause errors
+if (signContainer && outputArea) {
+    
     zodiacSigns.forEach(sign => {
+        // 1. Create a real <button> element (crucial for accessibility: tab-stop, Enter/Space support)
         const charButton = document.createElement('button');
-        charButton.type = 'button';
-        charButton.textContent = sign.character;
+        charButton.type = 'button'; // Best practice for buttons on the same page
+        
+        // 2. Give the button a visible name (its accessible name for screen readers)
+        charButton.textContent = `${sign.character} (${sign.name})`;
 
-        charButton.addEventListener('click', () => {
+        // 3. Wire the event listener using addEventListener (as taught in lecture)
+        charButton.addEventListener('click', (event) => {
+            // Clear previous results from the output area
             outputArea.textContent = '';
+
+            // Create a new result container to display the clicked character
             const resultDiv = document.createElement('div');
             resultDiv.classList.add('result-item');
 
             const heading = document.createElement('h3');
-            heading.textContent = `Selected: ${sign.name}`;
+            heading.textContent = `Zodiac Sign: ${sign.name}`;
             resultDiv.appendChild(heading);
 
             const desc = document.createElement('p');
-            desc.textContent = `Character: ${sign.character} | Dates: ${sign.dateRange}`;
+            desc.textContent = `FF7 Character: ${sign.character} | Date Range: ${sign.dateRange}`;
             resultDiv.appendChild(desc);
 
+            // Append the generated result to the live region output area
             outputArea.appendChild(resultDiv);
         });
 
-        buttonContainer.appendChild(charButton);
-    });
-} 
-// 6. Handle the Birthday Date Lookup Button
-if (lookupBtn && dateInput && outputArea) {
-    lookupBtn.addEventListener('click', () => {
-        const text = dateInput.value;
-        if (text.length > 0) {
-            const parts = text.split('-');
-            const month = parseInt(parts[1], 10);
-            const day = parseInt(parts[2], 10);
-
-            const matchedSign = findDate(month, day);
-            outputArea.textContent = '';
-
-            const resultDiv = document.createElement('div');
-            resultDiv.classList.add('result-item');
-
-            if (matchedSign) {
-                const heading = document.createElement('h3');
-                heading.textContent = `Your Sign: ${matchedSign.name}`;
-                resultDiv.appendChild(heading);
-
-                const charText = document.createElement('p');
-                charText.textContent = `Your FF7 Match is ${matchedSign.character}!`;
-                resultDiv.appendChild(charText);
-            } else {
-                resultDiv.textContent = 'No matching sign found.';
-            }
-
-            outputArea.appendChild(resultDiv);
-            dateInput.value = '';
-        }
+        // 4. Add the finished button into your HTML container grid
+        signContainer.appendChild(charButton);
     });
 }
 
