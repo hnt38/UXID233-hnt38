@@ -219,14 +219,6 @@ if (lookupBtn && dateInput && outputArea) {
             return;
         }
 
-        const parsedDate = new Date(text);
-        if (Number.isNaN(parsedDate.getTime())) {
-            outputArea.textContent = 'Please enter a valid date.';
-            return;
-        }
-
-        const month = parsedDate.getMonth() + 1;
-        const day = parsedDate.getDate();
         const matchedSign = findDate(month, day);
 
         outputArea.textContent = ''; // Clear previous output
