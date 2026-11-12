@@ -171,9 +171,8 @@ if (signContainer) {
         signContainer.appendChild(card);
     });
 }
- // Find your button container and output area on the page
+ // Find your button container on the page
 const buttonContainer = document.querySelector('#buttonContainer');
-const outputArea = document.querySelector('#outputArea');
 
 // Check if the container exists so it doesn't cause errors
 if (signContainer && outputArea) {
